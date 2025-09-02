@@ -2,11 +2,11 @@ from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 
 host="177.67.253.61"
-username="203788"
-password="203788"
-authSource="203788"
+username="x"
+password="x"
+authSource="x"
 port = 27017
-mongo_db_name= "203788"
+mongo_db_name= "x"
 
 
 client = MongoClient(f"mongodb://{username}:{password}@{host}:{port}/{mongo_db_name}",authSource=authSource,serverSelectionTimeoutMS=5000)

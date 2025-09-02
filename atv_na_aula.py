@@ -1,12 +1,12 @@
 from mongoengine import connect,Document,StringField,IntField,ReferenceField
 
 connect(
-    db="203788",
-    username= "203788",
-    password= "203788",
+    db="x",
+    username= "x",
+    password= "x",
     host= "10.0.237.41",
     port= 27017,
-    authentication_source= "203788"
+    authentication_source= "x"
 )
 
 class Pessoa(Document):

@@ -2,9 +2,9 @@ from pymongo import MongoClient
 
 # Conexão com o MongoDB
 client = MongoClient('10.0.237.41',
-                     username='teste',
-                     password='senha',
-                     authSource='teste',
+                     username='x',
+                     password='x',
+                     authSource='x',
                      authMechanism='SCRAM-SHA-256',
                      serverSelectionTimeoutMS=5000)
 
