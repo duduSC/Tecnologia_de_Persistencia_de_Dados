@@ -1,0 +1,140 @@
+///spotify
+
+
+id n = 
+nome s = 
+genero_musical s = 
+nacionalidade = 
+albuns[]
+  titulo s = teste
+  quantidade_musicas n =
+  ano s= 
+  musica[]
+    codigo n= 
+    nome s =
+    data_lancamento d= 
+    duracao n = 
+    visualizacoes n = 
+    linguagem_impropria b = 
+
+//JSON
+
+{
+  "id": 0,
+  "nome": "",
+  "genero_musical": "",
+  "nacionalidade": "",
+  "albuns": [
+    {
+      "titulo": "teste",
+      "quantidade_musicas": 0,
+      "ano": "",
+      "musica": [
+        {
+          "codigo": 0,
+          "nome": "",
+          "data_lancamento": "2025-08-11T19:29:37.148Z",
+          "duracao": 0,
+          "visualizacoes": 0,
+          "linguagem_impropria": false
+        }
+      ]
+    }
+  ]
+}
+
+
+
+//Playlist
+
+//Playlist
+
+id_usuario n =
+nome s =
+duracao_s n =
+musicas[]
+  id_musica n =
+  id_artista n =
+  nome_musica s =
+  nome_artista s =
+
+//JSON
+
+{
+  "id_usuario": 0,
+  "nome": "",
+  "duracao_s": 0,
+  "musicas": [
+    {
+      "id_musica": 0,
+      "id_artista": 0,
+      "nome_musica": "",
+      "nome_artista": ""
+    }
+  ]
+}
+
+
+
+//Micro Blog
+id n =
+nome s =
+email s =
+biografia s =
+data_criacao d =
+seguidores[]
+  id_usuario n =
+  nome_usuario s =
+seguindo[]
+  id_usuario n =
+  nome_usuario s =
+postagens[]
+  id_postagem n =
+  conteudo s =
+  data_postagem d =
+  curtidas n =
+  comentarios[]
+    id_comentario n =
+    id_usuario n =
+    nome_usuario s =
+    conteudo s =
+    data_comentario d =
+
+//JSON
+
+{
+  "id": 0,
+  "nome": "",
+  "email": "",
+  "biografia": "",
+  "data_criacao": "2025-08-11T19:30:22.399Z",
+  "seguidores": [
+    {
+      "id_usuario": 0,
+      "nome_usuario": ""
+    }
+  ],
+  "seguindo": [
+    {
+      "id_usuario": 0,
+      "nome_usuario": ""
+    }
+  ],
+  "postagens": [
+    {
+      "id_postagem": 0,
+      "conteudo": "",
+      "data_postagem": "2025-08-11T19:30:22.399Z",
+      "curtidas": 0,
+      "comentarios": [
+        {
+          "id_comentario": 0,
+          "id_usuario": 0,
+          "nome_usuario": "",
+          "conteudo": "",
+          "data_comentario": "2025-08-11T19:30:22.399Z"
+        }
+      ]
+    }
+  ]
+}

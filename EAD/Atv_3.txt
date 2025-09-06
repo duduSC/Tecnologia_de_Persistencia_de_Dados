@@ -1,0 +1,88 @@
+
+// Operação 2: Inserir 2 novos telefones em Caxias do Sul, RS
+db.telefones.update(
+    { "sigla": "RS", "telefone.cidade": "Caxias do Sul" },
+    {
+        $push: {
+            "telefone": {
+                $each: [
+                    {
+                        "cidade": "Caxias do Sul",
+                        "codacesso": 54,
+                        "numero": "9999-1234"
+                    },
+                    {
+                        "cidade": "Caxias do Sul",
+                        "codacesso": 54,
+                        "numero": "8888-5678"
+                    }
+                ]
+            }
+        }
+    }
+);
+
+// Operação 3: Modificar o telefone da cidade de Passo Fundo, RS
+db.telefones.update(
+    { "sigla": "RS", "telefone.cidade": "Passo Fundo" },
+    {
+        $set: {
+            "telefone.$.numero": "316-1919"
+        }
+    }
+);
+
+// Operação 4: Obter a sigla e o nome do estado que tem uma cidade chamada "Campo dos Goytacazes"
+db.telefones.find(
+    { "telefone.cidade": "Campo dos Goytacazes" },
+    { "sigla": 1, "nome": 1, "_id": 0 }
+);
+
+// Operação 5: Obter o nome da cidade que possui codacesso = 47 e numero = "217-6320"
+db.telefones.aggregate([
+    { $unwind: "$telefone" },
+    {
+        $match: {
+            "telefone.codacesso": 47,
+            "telefone.numero": "217-6320"
+        }
+    },
+    {
+        $project: {
+            "cidade": "$telefone.cidade",
+            "_id": 0
+        }
+    }
+]);
+
+// Operação 6: Obter todos os telefones do estado de sigla TO
+db.telefones.find(
+    { "sigla": "TO" },
+    { "telefone": 1, "_id": 0 }
+);
+
+// Operação 7: Contar quantos telefones há no estado de sigla RS
+db.telefones.aggregate([
+    { $match: { "sigla": "RS" } },
+    { $unwind: "$telefone" },
+    { $count: "totalTelefones" }
+]);
+
+// Operação 8: Adicionar ao estado do RS um atributo "dataAtualizacao", contendo a data de hoje.
+db.telefones.update(
+    { "sigla": "RS" },
+    { $set: { "dataAtualizacao": new Date() } }
+);
+
+// Operação 9: Remover um telefone de Alegrete, RS
+db.telefones.update(
+    { "sigla": "RS" },
+    {
+        $pull: {
+            "telefone": {
+                "cidade": "Alegrete",
+                "numero": "421-9800"
+            }
+        }
+    }
+);

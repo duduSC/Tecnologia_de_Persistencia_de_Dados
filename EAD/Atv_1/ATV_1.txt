@@ -1,0 +1,52 @@
+Exercício 1:
+{
+  "aluno": {
+    "matricula": 0,
+    "nome": "",
+    "telefone": "",
+    "endereco": "",
+    "matriculado": {
+      "faltas": 0,
+      "nota": 0,
+      "ano": 0,
+      "semestre": ""
+    }
+//pode receber codigo de disciplina? 
+  },
+  "disciplina": {
+    "codigo": "",
+    "nome": "",
+    "creditos": 0
+  }
+}
+
+Exercício 2:
+{
+  "customer": {
+    "name": "",
+    "adress": {
+      "street": "",
+      "city": "",
+      "state": "",
+      "post_code": ""
+    }
+  },
+  "order": {
+    "order_item": {
+      "price": "",
+      "product": {
+        "name": ""
+      }
+    },
+    "payment": {
+      "ccinfo": "",
+      "txnld": ""
+    },
+    "adress": {
+      "street": "",
+      "city": "",
+      "state": "",
+      "post_code": ""
+    }
+  }
+}
