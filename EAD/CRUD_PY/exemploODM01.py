@@ -2,12 +2,12 @@
 from mongoengine import Document, StringField, IntField, ListField, ReferenceField, connect
 
 connect(
-    db="x",              # nome do banco
-    username="x",      # usuário criado no MongoDB
-    password="x",      # senha do usuário
-    host="10.0.237.41",            # ou IP/hostname do servidor
+    db="teste",              # nome do banco
+    username="teste",      # usuário criado no MongoDB
+    password="senha",      # senha do usuário
+    host="177.67.253.61",            # ou IP/hostname do servidor
     port=27017,
-    authentication_source="x"  # normalmente "admin" ou o próprio db
+    authentication_source="teste"  # normalmente "admin" ou o próprio db
 )
 
 class Musica(Document):
