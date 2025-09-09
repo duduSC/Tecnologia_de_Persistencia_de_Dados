@@ -22,7 +22,7 @@ class Enderecos(Document):
     
 class Pedidos(Document):
     valor = DecimalField()
-    endereco= ReferenceField("Enderecos",reverse_delete_rule=NULLIFY)
+    endereco= ReferenceField(Enderecos,reverse_delete_rule=NULLIFY)
     motoboy = ReferenceField('Motoboys')    
     
     def __str__(self):
@@ -36,8 +36,9 @@ class Motoboys(Document):
     
     def __str__(self):
         return f"Nome: {self.nome}, telefone: {self.telefone},cpf: {self.cpf},pedidos: {self.pedidos}"
-    
-    
+
+Pedidos.register_delete_rule(Motoboys,"pedidos",NULLIFY)
+
 # CREATE
 
 def create_endereco():
@@ -135,9 +136,6 @@ def read_motoboy():
 
 
 # UPDATE
-        
-
-#Pedidos: \n ID: {pedido.id}, Endereço: {endereco_info}
 def update_endereco():
     while True:
         read_endereco()
@@ -257,11 +255,14 @@ def delete_endereco():
     read_endereco()
     id_endereco = input("Digite o id da endereco que deseja excluir: ")
     endereco = Enderecos.objects(id=id_endereco).first()
-    if not endereco:
-        print("endereco não encontrada!")
-        return
-    endereco.delete()
-    print("Endereco atualizado com sucesso!")
+    try:
+        if not endereco:
+            print("Encereco não encontrado!")
+        else:
+            endereco.delete()
+            print("Endereco deletado com sucesso!")
+    except Exception as erro:
+        print(f"Erro: {erro}")
 
 
 def delete_pedido():
@@ -269,22 +270,24 @@ def delete_pedido():
     id_pedido = input("Digite o id da endereco que deseja excluir: ")
     pedido = Pedidos.objects(id=id_pedido).first()
     if not pedido:
-        print("endereco não encontrada!")
-        return
-    pedido.delete()
-    print("Pedido atualizado com sucesso!")
+        print("Pedido não encontrado!")
+    else:
+        pedido.delete()
+        print("Pedido deletado com sucesso!")
 
 
 def delete_motoboy():
     read_motoboy()
     id_motoboy = input("Digite o id da endereco que deseja excluir: ")
-    motoboy = Motoboys.objects(id=id_motoboy).first()
-    if not motoboy:
-        print("endereco não encontrada!")
-        return
-    motoboy.delete()
-    print("Motoboy atualizado com sucesso!")
-
+    try:
+        motoboy = Motoboys.objects(id=id_motoboy).first()
+        if not motoboy:
+            print("Motoboy não encontrado!")
+        else:
+            motoboy.delete()
+            print("Motoboy deletado com sucesso!")
+    except Exception as erro:
+        print(f"Erro {erro}")
 
 
 
